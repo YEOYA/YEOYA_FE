@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Quote from "../assets/quote.svg?react";
 
 export const Onboard = () => {
   const [now, setNow] = useState(false);
-  const navigate = useNavigation();
+  const navigate = useNavigate();
 
   return (
     <div
@@ -38,7 +38,7 @@ export const Onboard = () => {
       </div>
       <button
         className="w-full h-fit py-3 border-[1px] border-[#000000] rounded-sm justify-self-end"
-        onClick={() => (now ? setNow((prev) => !prev) : navigate("/login"))}
+        onClick={() => (!now ? setNow((prev) => !prev) : navigate("/login"))}
       >
         다음
       </button>

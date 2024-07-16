@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./Layout";
-import { Onboard } from "../pages";
+import { Onboard, Login } from "../pages";
 
 export const Router = () => {
   return (
@@ -8,6 +8,7 @@ export const Router = () => {
       <Routes>
         <Route element={<Layout />} path="/">
           <Route element={<Onboard />} path="" />
+          <Route element={<Login />} path="login" />
         </Route>
       </Routes>
     </BrowserRouter>

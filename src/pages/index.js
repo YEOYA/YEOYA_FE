@@ -1,1 +1,2 @@
-export * from "./Main";
+export * from "./Onboard";
+export * from "./Login";

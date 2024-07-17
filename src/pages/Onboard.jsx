@@ -37,7 +37,7 @@ export const Onboard = () => {
         </span>
       </div>
       <button
-        className="w-full h-fit py-3 border-[1px] border-[#000000] rounded-sm justify-self-end"
+        className={`w-full h-fit py-3 border border-[#000000] rounded-lg justify-self-end`}
         onClick={() => (!now ? setNow((prev) => !prev) : navigate("/login"))}
       >
         다음

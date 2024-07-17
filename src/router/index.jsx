@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./Layout";
-import { Onboard, Login, Register, Profile } from "../pages";
+import { Onboard, Login, Post, Main, Profile, Register } from "../pages";
 
 export const Router = () => {
   return (
@@ -11,6 +11,8 @@ export const Router = () => {
           <Route element={<Login />} path="login" />
           <Route element={<Register />} path="register/:section" />
           <Route element={<Profile />} path="profile" />
+          <Route element={<Post />} path="post" />
+          <Route element={<Main />} path="main" />
         </Route>
       </Routes>
     </BrowserRouter>

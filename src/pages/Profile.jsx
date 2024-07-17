@@ -53,17 +53,17 @@ export const Profile = () => {
           {data.age}대ㆍ{gender[data.gender]}ㆍ{data.party}ㆍ{data.community}
         </span>
       </div>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-5 ">
         <span className="text-bold20 text-black">
           내가 팔로우한{" "}
           <span className="text-medium20 text-gray-500">
             {data.followed.length}
           </span>
         </span>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col">
           {data.followed.map((i, j) => (
             <>
-              <div className="flex w-full justify-between items-center">
+              <div className="flex w-full justify-between items-center py-[20px]">
                 <div className="flex gap-2">
                   <img
                     src={i.profile}

@@ -7,6 +7,7 @@ import { Third } from "./Third";
 import { useParams, useNavigate } from "react-router-dom";
 import { AccountButton } from "../../components";
 import { Arrow } from "../../assets";
+import { instance } from "../../apis";
 
 export const Register = () => {
   const { section } = useParams();
@@ -16,7 +17,7 @@ export const Register = () => {
     "w-2 h-2 rounded-full transition-all duration-300";
 
   const [data, setData] = useState({
-    userid: "",
+    id: "",
     username: "",
     password: "",
     pwcheck: "",
@@ -30,11 +31,13 @@ export const Register = () => {
     setData({ ...data, [e.target.id]: e.target.value });
 
   const handleRegister = () => {
-    console.log("test");
+    instance.post("/register", data).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
-    <div className="w-full h-screen flex flex-col justify-between">
+    <div className="w-full h-full flex flex-col justify-between">
       <div className="w-full p-5 flex">
         <Arrow
           onClick={() =>

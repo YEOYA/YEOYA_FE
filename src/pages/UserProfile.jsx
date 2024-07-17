@@ -22,7 +22,7 @@ const dummy = [
   "제28회 사법시험 합격",
 ];
 
-export const Profile = () => {
+export const UserProfile = () => {
   const list = ["활동/논란", "정보"];
   const [clickList, setClickList] = useState(0);
   const [clickButton, setClickButton] = useState(false);

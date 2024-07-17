@@ -2,7 +2,7 @@ import { Input } from "../../components";
 
 export const First = ({ data, setData }) => {
   return (
-    <div className="w-full h-full shrink-0 flex flex-col gap-7 ">
+    <div className="w-full h-full shrink-0 flex flex-col gap-9 ">
       <span className="text-regular16 text-gray-400 block">
         아이디와 비밀번호를 설정해주세요
       </span>
@@ -10,7 +10,7 @@ export const First = ({ data, setData }) => {
       <Input
         label="닉네임"
         value={data.username}
-        placeholder="1지에서 6자"
+        placeholder="1자에서 6자"
         onChange={setData}
         id="username"
       />
@@ -32,7 +32,7 @@ export const First = ({ data, setData }) => {
       <Input
         label="비밀번호"
         value={data.passcheck}
-        placeholder="8자에서 16자"
+        placeholder="비밀번호 재입력"
         onChange={setData}
         id="pwcheck"
         secure

@@ -1,3 +1,5 @@
+import React from "react";
+
 const parties = [
   {
     name: "국민의힘",
@@ -43,16 +45,16 @@ const parties = [
 
 export const Fourth = ({ data, setData }) => {
   return (
-    <div className="w-full h-full shrink-0 flex flex-col gap-10 ">
+    <div className="w-full h-full shrink-0 flex flex-col gap-10">
       <span className="text-regular16 text-gray-400 block">
         지지하고 있는 정당을 알려주세요.
       </span>
       <div className="w-full h-fit gap-4 flex flex-wrap">
         {parties.map((i) => (
           <button
-            className={`${
-              data.party === i.name && "bg-gray-100"
-            } flex items-center gap-2 p-[20px] border-2 text-semibold18 border-gray-100 leading-none rounded-[8px]`}
+            key={i.name}
+            style={data.party === i.name ? { backgroundColor: i.color } : {}}
+            className={`flex items-center bg-opacity-0 gap-2 p-[20px] border-2 text-semibold18 border-gray-100 leading-none rounded-[8px]`}
             onClick={() => setData({ ...data, party: i.name })}
           >
             <div

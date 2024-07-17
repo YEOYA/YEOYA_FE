@@ -18,7 +18,7 @@ export const Fifth = ({ data, setData }) => {
         {communities.map((i) => (
           <button
             className={`${
-              data.community === i && "bg-gray-100"
+              data.community === i && "bg-gray-100 border-gray-200"
             } flex items-center gap-2 p-[20px] border-2 text-semibold18 border-gray-100 leading-none rounded-[8px]`}
             onClick={() => setData({ ...data, community: i })}
           >

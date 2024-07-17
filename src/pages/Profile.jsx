@@ -1,4 +1,5 @@
 import { Button } from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const gender = {
   female: "여성",
@@ -37,6 +38,7 @@ const data = {
 };
 
 export const Profile = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full h-full flex flex-col gap-8 p-[5%]">
       <img
@@ -59,7 +61,7 @@ export const Profile = () => {
             {data.followed.length}
           </span>
         </span>
-        <div className="flex flex-col">
+        <div className="flex flex-col" onClick={() => navigate("/user")}>
           {data.followed.map((i, j) => (
             <>
               <div className="flex w-full justify-between items-center py-[20px]">

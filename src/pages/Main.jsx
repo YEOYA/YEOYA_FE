@@ -5,8 +5,12 @@ import Close from "../assets/Close.svg?react";
 import Arrow_Diagonal from "../assets/Arrow_Diagonal.svg?react";
 import { Footer } from "../components/Footer";
 import { IssueList } from "../components";
+import { FollowList } from "../components/FollowList";
+import { useNavigate } from "react-router-dom";
 
 export const Main = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full min-h-screen flex flex-col px-5 py-6 gap-12">
       <div className="w-full flex justify-between">
@@ -44,6 +48,7 @@ export const Main = () => {
           </button>
         </div>
       </div>
+      <FollowList navigate={navigate} />
       <IssueList title={"최근 이슈"} />
       <Footer />
     </div>

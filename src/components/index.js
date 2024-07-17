@@ -4,3 +4,7 @@ export * from "./Footer";
 export * from "./IssueList";
 export * from "./Input";
 export * from "./AccountButton";
+export * from "./Button";
+export * from "./Dropdown";
+export * from "./FollowList";
+export * from "./Topbar";

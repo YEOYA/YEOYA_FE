@@ -1,5 +1,6 @@
 import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { Topbar } from "../components/Topbar";
 
 const gender = {
   female: "여성",
@@ -40,55 +41,59 @@ const data = {
 export const Profile = () => {
   const navigate = useNavigate();
   return (
-    <div className="w-full h-full flex flex-col gap-8 p-[5%]">
-      <img
-        src="https://i.dailymail.co.uk/i/pix/2010/12/14/article-1338529-0C7A159D000005DC-496_634x492.jpg"
-        className="w-24 h-24 object-cover rounded-full border-2"
-      />
-      <div className="flex flex-col gap-1">
-        <div className="flex w-full justify-between">
-          <span className="text-semibold36">{data.name}</span>
-          <Button>프로필 편집</Button>
-        </div>
-        <span className="text-semibold18 text-gray-400">
-          {data.age}대ㆍ{gender[data.gender]}ㆍ{data.party}ㆍ{data.community}
-        </span>
-      </div>
-      <div className="flex flex-col gap-5 ">
-        <span className="text-bold20 text-black">
-          내가 팔로우한{" "}
-          <span className="text-medium20 text-gray-500">
-            {data.followed.length}
+    <>
+      <Topbar title="마이페이지" onClick={() => navigate("/main")} />
+      <div className="w-full h-full flex flex-col gap-8 px-5 py-6">
+        <img
+          src="https://i.dailymail.co.uk/i/pix/2010/12/14/article-1338529-0C7A159D000005DC-496_634x492.jpg"
+          className="w-24 h-24 object-cover rounded-full border-2"
+        />
+        <div className="flex flex-col gap-1">
+          <div className="flex w-full justify-between">
+            <span className="text-semibold36">{data.name}</span>
+            <Button onClick={() => navigate("edit")}>프로필 편집</Button>
+          </div>
+          <span className="text-medium18 text-gray-400">
+            {data.age}대ㆍ{gender[data.gender]}ㆍ{data.party}ㆍ{data.community}
           </span>
-        </span>
-        <div className="flex flex-col" onClick={() => navigate("/user")}>
-          {data.followed.map((i, j) => (
-            <>
-              <div className="flex w-full justify-between items-center py-[20px]">
-                <div className="flex gap-2">
-                  <img
-                    src={i.profile}
-                    className="w-14 h-14 rounded-full object-cover border-2"
-                  />
-                  <div className="flex flex-col justify-center gap-[4px]">
-                    <div className="flex gap-1">
-                      <span className="text-bold18">{i.name}</span>
-                      <span className="text-regular18">{i.name}</span>
+        </div>
+        <div className="flex flex-col gap-5 ">
+          <span className="text-bold20 text-black">
+            내가 팔로우한{" "}
+            <span className="text-medium20 text-gray-500">
+              {data.followed.length}
+            </span>
+            명
+          </span>
+          <div className="flex flex-col" onClick={() => navigate("/user")}>
+            {data.followed.map((i, j) => (
+              <>
+                <div className="flex w-full justify-between items-center py-[20px]">
+                  <div className="flex gap-2">
+                    <img
+                      src={i.profile}
+                      className="w-14 h-14 rounded-full object-cover border-2"
+                    />
+                    <div className="flex flex-col justify-center gap-[4px]">
+                      <div className="flex gap-1">
+                        <span className="text-bold18">{i.name}</span>
+                        <span className="text-regular18">{i.name}</span>
+                      </div>
+                      <span className="text-medium18 text-gray-500">
+                        {i.party}
+                      </span>
                     </div>
-                    <span className="text-medium18 text-gray-500">
-                      {i.party}
-                    </span>
                   </div>
+                  <Button>언팔로우</Button>
                 </div>
-                <Button>언팔로우</Button>
-              </div>
-              {j !== data.followed.length - 1 && (
-                <div className="w-full h-[1px] bg-gray-100" />
-              )}
-            </>
-          ))}
+                {j !== data.followed.length - 1 && (
+                  <div className="w-full h-[1px] bg-gray-100" />
+                )}
+              </>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

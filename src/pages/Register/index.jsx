@@ -88,7 +88,7 @@ export const Register = () => {
                 ? navigate(`/register/${parseInt(section) + 1}`, {
                     replace: true,
                   })
-                : handleRegister()
+                : navigate("/login")
             }
             disabled={data.password !== data.pwcheck}
           />

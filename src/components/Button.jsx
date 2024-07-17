@@ -3,7 +3,7 @@ export const Button = ({ children, onClick, checked }) => {
     <button
       className={`${
         !!!checked ? "text-gray-700" : "text-white bg-black border-black"
-      } flex gap-2 items-center text-semibold18 border-2 w-fit px-5 py-3 leading-none rounded-full`}
+      } flex gap-2 items-center text-semibold18 border w-fit px-5 py-3 leading-none rounded-full`}
       onClick={onClick}
     >
       {children}

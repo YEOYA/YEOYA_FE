@@ -14,7 +14,7 @@ export const Post = () => {
     <div className="flex flex-col w-full pb-20">
       <div className="flex items-center w-full px-5 py-4">
         <Arrow
-          onClick={() => navigate("/profile")}
+          onClick={() => navigate("/user")}
           direction="left"
           className="text-black"
         />

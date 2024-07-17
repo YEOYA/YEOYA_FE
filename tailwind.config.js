@@ -2,6 +2,10 @@
 export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
+    backgroundImage: {
+      defaultProfileImg: "url('./src/assets/DefaultProfileImg.png')",
+      cardBackground: "url('./src/assets/CardBackground.png')",
+    },
     extend: {},
     colors: {
       white: "#FFFFFF",

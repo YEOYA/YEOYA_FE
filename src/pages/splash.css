@@ -11,6 +11,7 @@
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
   animation: drawPath 2s ease forwards;
+  animation-delay: 0.5s;
 }
 
 @keyframes topRect {
@@ -18,7 +19,6 @@
     opacity: 0;
     width: 8px;
     transform: translateX(16px);
-    background-color: white;
   }
   100% {
     opacity: 100%;
@@ -30,7 +30,6 @@
     opacity: 0;
     width: 8px;
     transform: translateX(-16px);
-    background-color: white;
   }
   100% {
     opacity: 100%;
@@ -38,11 +37,13 @@
 }
 
 .rect1 {
-  animation-duration: 1s;
   animation: topRect 1s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 
 .rect2 {
-  animation-duration: 1s;
   animation: bottomRect 1s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }

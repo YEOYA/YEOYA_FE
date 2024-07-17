@@ -1,4 +1,5 @@
 export * from "./Good";
 export * from "./Bad";
 export * from "./Arrow";
-export * from "./Search";
+export * from "./Magnifier";
+export * from "./Close";

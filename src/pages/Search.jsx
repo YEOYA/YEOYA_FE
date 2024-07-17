@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Arrow } from "../assets";
-import { Search as SearchIcon } from "../assets";
+import { Arrow, Magnifier } from "../assets";
 import { Button } from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const parties = [
   "전체정당",
@@ -43,34 +43,35 @@ const data = [
 
 export const Search = () => {
   const [tag, setTag] = useState("전체정당");
+  const navigate = useNavigate();
 
   return (
-    <div className="w-full h-full p-[5%] flex flex-col">
-      <div className="flex gap-4 justify-between items-center">
-        <Arrow direction="left" />
-        <div className="flex gap-[13px] w-full rounded-full border-2 px-[20px] py-[13px] border-gray-300 focus-within:border-black">
-          <SearchIcon className="text-gray-300 focus:text-black" />
-          <input className="w-full outline-none" />
+    <div className="w-full h-full flex flex-col">
+      <div className="w-full flex gap-4 px-5 py-2 items-center">
+        <Arrow onClick={() => navigate("/main")} direction="left" />
+        <div className="rounded-full cursor-pointer transition-all group gap-3 flex px-5 py-3.5 items-center w-full border border-gray-300 focus-within:border-black bg-white">
+          <Magnifier className="text-gray-400 group-focus-within:text-black" />
+          <input
+            className="peer placeholder:text-gray-400 outline-none text-medium18 text-black w-full"
+            placeholder="검색어를 입력해주세요"
+          />
         </div>
       </div>
-      <div className="flex gap-[16px] w-[111%] mt-4 ml-[-5.5%] px-[30px] overflow-auto h-fit items-center border-b-[1px]">
+      <div className="flex gap-4 w-full px-5 overflow-auto h-fit items-center border-b border-gray-200">
         {parties.map((i) => (
           <div
             onClick={() => setTag(i)}
             className={`${
               i === tag
-                ? "text-bold18 text-black "
-                : "text-[#a1a1aa] text-medium18"
-            } flex justify-center relative h-[60px] px-[8px] shrink-0  items-center cursor-pointer`}
+                ? "text-bold18 text-black border-b-2 border-black"
+                : "text-gray-400 text-medium18"
+            } flex relative px-2 py-5 shrink-0 cursor-pointer`}
           >
             {i}
-            {i === tag && (
-              <div className="absolute w-[70%] h-1 bg-black bottom-0" />
-            )}
           </div>
         ))}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full px-5">
         {data.map((i, j) => (
           <>
             <div className="flex w-full justify-between items-center py-[20px]">

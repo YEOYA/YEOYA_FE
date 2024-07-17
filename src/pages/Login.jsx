@@ -42,7 +42,7 @@ export const Login = () => {
           </span>
         </span>
       </div>
-      <AccountButton text="로그인" />
+      <AccountButton onClick={() => navigate("/main")} text="로그인" />
     </div>
   );
 };

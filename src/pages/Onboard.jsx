@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Quote from "../assets/quote.svg?react";
+import { Splash } from "./Splash";
 
 export const Onboard = () => {
   const [now, setNow] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (showSplash) {
+    return <Splash />;
+  }
 
   return (
     <div

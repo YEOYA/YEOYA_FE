@@ -21,13 +21,13 @@ export const Second = ({ data, setData }) => {
   }, [num]);
 
   return (
-    <div className="w-full h-full shrink-0 flex flex-col gap-20 ">
+    <div className="w-full h-full shrink-0 flex flex-col gap-4 ">
       <span className="text-regular16 text-gray-400 block">
         나이대를 선택해 주세요
       </span>
       <div className="w-full h-full justify-center items-center gap-6 flex">
         <p className="text-semibold36 text-white">대</p>
-        <div className="flex relative flex-col gap-5 items-center justify-center">
+        <div className="flex relative h-full flex-col gap-5 items-center justify-center">
           <div
             onClick={downNumber}
             className="w-full h-1/3 absolute top-0 z-10"

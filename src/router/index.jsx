@@ -9,6 +9,7 @@ import {
   UserProfile,
   Post,
   Main,
+  Search,
 } from "../pages";
 
 export const Router = () => {
@@ -24,6 +25,7 @@ export const Router = () => {
           <Route element={<Post />} path="post" />
           <Route element={<Main />} path="main" />
           <Route element={<ProfileEdit />} path="profile/edit" />
+          <Route element={<Search />} path="search" />
         </Route>
       </Routes>
     </BrowserRouter>

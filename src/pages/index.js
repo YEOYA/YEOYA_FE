@@ -6,3 +6,4 @@ export * from "./UserProfile";
 export * from "./Post";
 export * from "./Main";
 export * from "./ProfileEdit";
+export * from "./Search";

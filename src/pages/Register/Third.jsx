@@ -8,7 +8,7 @@ export const Third = ({ data, setData }) => {
         <button
           className={`w-full py-5 bg-gray-100 ${
             data.gender === "male" && "invert"
-          } text-medium20 rounded-[8px]`}
+          } text-medium20 rounded-lg transition-all`}
           onClick={() => setData({ ...data, gender: "male" })}
         >
           남성
@@ -16,7 +16,7 @@ export const Third = ({ data, setData }) => {
         <button
           className={`w-full py-5 bg-gray-100 ${
             data.gender === "female" && "invert"
-          } text-medium20 rounded-[8px]`}
+          } text-medium20 rounded-lg transition-all`}
           onClick={() => setData({ ...data, gender: "female" })}
         >
           여성

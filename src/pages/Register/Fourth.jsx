@@ -44,6 +44,12 @@ const parties = [
 ];
 
 export const Fourth = ({ data, setData }) => {
+  // 헬퍼 함수: hex 색상을 rgba로 변환
+  const hexToRgba = (hex, opacity) => {
+    const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16));
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  };
+
   return (
     <div className="w-full h-full shrink-0 flex flex-col gap-10">
       <span className="text-regular16 text-gray-400 block">
@@ -53,8 +59,12 @@ export const Fourth = ({ data, setData }) => {
         {parties.map((i) => (
           <button
             key={i.name}
-            style={data.party === i.name ? { backgroundColor: i.color } : {}}
-            className={`flex items-center bg-opacity-0 gap-2 p-[20px] border-2 text-semibold18 border-gray-100 leading-none rounded-[8px]`}
+            style={
+              data.party === i.name
+                ? { backgroundColor: hexToRgba(i.color, 0.2) }
+                : {}
+            }
+            className={`flex items-center gap-2 p-[20px] border-2 text-semibold18 border-gray-100 leading-none rounded-[8px]`}
             onClick={() => setData({ ...data, party: i.name })}
           >
             <div

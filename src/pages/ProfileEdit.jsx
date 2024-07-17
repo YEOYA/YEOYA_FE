@@ -40,7 +40,7 @@ export const ProfileEdit = () => {
     <div className="w-full h-full flex flex-col gap-8 p-[5%]">
       <div className="flex w-full relative justify-center items-center">
         <span>프로필 편집</span>
-        <Arrow className="absolute left-5" />
+        <Arrow className="absolute left-0" />
       </div>
       <div className="relative w-fit h-fit">
         <img

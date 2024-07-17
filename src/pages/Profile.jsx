@@ -1,5 +1,4 @@
 import { Button } from "../components/Button";
-import { default as Logo } from "../assets/Closed.svg?react";
 
 const gender = {
   female: "여성",

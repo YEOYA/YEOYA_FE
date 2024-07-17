@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./Layout";
-import { Onboard, Login } from "../pages";
+import { Onboard, Login, Register } from "../pages";
 
 export const Router = () => {
   return (
@@ -9,6 +9,7 @@ export const Router = () => {
         <Route element={<Layout />} path="/">
           <Route element={<Onboard />} path="" />
           <Route element={<Login />} path="login" />
+          <Route element={<Register />} path="register/:section" />
         </Route>
       </Routes>
     </BrowserRouter>

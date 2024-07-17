@@ -11,6 +11,7 @@ import {
   Main,
   Search,
 } from "../pages";
+import { Splash } from "../pages/Splash";
 
 export const Router = () => {
   return (
@@ -25,6 +26,7 @@ export const Router = () => {
           <Route element={<Post />} path="post" />
           <Route element={<Main />} path="main" />
           <Route element={<ProfileEdit />} path="profile/edit" />
+          <Route element={<Splash />} path="splash" />
           <Route element={<Search />} path="search" />
         </Route>
       </Routes>

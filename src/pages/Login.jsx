@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Logo from "../assets/Logo.svg?react";
-import { Input } from "../components";
+import { AccountButton, Input } from "../components";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -42,10 +42,7 @@ export const Login = () => {
           </span>
         </span>
       </div>
-
-      <button className="bg-black py-5 text-white h-fit rounded-[8px] text-[20px] font-medium self-end">
-        로그인
-      </button>
+      <AccountButton text="로그인" />
     </div>
   );
 };

@@ -17,19 +17,22 @@ export const Input = ({
   return (
     <div>
       <span className="text-[16px] font-bold text-black">{label}</span>
-      <div className="relative flex items-center w-full h-fit">
+      <div
+        className={`relative flex items-center border-b w-full h-fit ${
+          !!value ? "border-black" : "border-gray300"
+        }`}
+      >
         <input
           type={(!!secure && visible) || !!!secure ? "text" : "password"}
           placeholder={placeholder}
           id={id}
-          className={`w-full h-10 outline-none border-b-2 text-medium20 ${
-            !!value ? "border-black" : "border-gray300"
-          }`}
+          className={`w-full h-10 outline-none text-medium20`}
           value={value}
           onChange={onChange}
         />
+
         {!!secure && (
-          <div className="absolute right-5 cursor-pointer">
+          <div className="cursor-pointer">
             {visible ? (
               <Opened onClick={clickVisible} />
             ) : (

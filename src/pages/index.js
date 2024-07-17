@@ -5,3 +5,4 @@ export * from "./Profile";
 export * from "./UserProfile";
 export * from "./Post";
 export * from "./Main";
+export * from "./ProfileEdit";

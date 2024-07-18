@@ -2,16 +2,26 @@ import { useState } from "react";
 import Logo from "../assets/Logo.svg?react";
 import { AccountButton, Input } from "../components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { instance } from "../apis";
 
 export const Login = () => {
   const [data, setData] = useState({
+    grant_type: "",
     username: "",
     password: "",
+    scope: "",
+    client: "",
+    client_secret: "",
   });
   const navigate = useNavigate();
 
   const handleChange = (e) =>
     setData({ ...data, [e.target.id]: e.target.value });
+
+  const handleLogin = () => {
+    instance.post("/login", data).then((res) => console.log(res));
+  };
 
   return (
     <div className="grid grid-rows-[0.1fr_0.7fr_0.2fr] gap-16 w-full h-full p-[5%]">
@@ -42,7 +52,7 @@ export const Login = () => {
           </span>
         </span>
       </div>
-      <AccountButton onClick={() => navigate("/main")} text="로그인" />
+      <AccountButton text="로그인" onClick={handleLogin} />
     </div>
   );
 };

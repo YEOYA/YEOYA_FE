@@ -17,22 +17,24 @@ export const Register = () => {
     "w-2 h-2 rounded-full transition-all duration-300";
 
   const [data, setData] = useState({
-    id: "",
     username: "",
+    nickname: "",
     password: "",
     pwcheck: "",
     age: 10,
     gender: "",
-    party: "",
+    party: {},
     community: "",
+    following: [],
   });
 
   const handleChange = (e) =>
     setData({ ...data, [e.target.id]: e.target.value });
 
   const handleRegister = () => {
-    instance.post("/register", data).then((res) => {
-      console.log(res);
+    instance.post("/signup", data).then((res) => {
+      console.log(data);
+      navigate("/login");
     });
   };
 

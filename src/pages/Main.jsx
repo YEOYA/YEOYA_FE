@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Bell from "../assets/Bell.svg?react";
 import { Magnifier, Close } from "../assets";
 import Arrow_Diagonal from "../assets/Arrow_Diagonal.svg?react";
@@ -6,17 +6,36 @@ import { Footer } from "../components/Footer";
 import { IssueList } from "../components";
 import { FollowList } from "../components/FollowList";
 import { useNavigate } from "react-router-dom";
+import { instance } from "../apis";
+import { Cookies } from "react-cookie";
+
+const cookies = new Cookies();
 
 export const Main = () => {
+  const [follows, setFollows] = useState([]);
   const [visible, setVisible] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    instance
+      .get(`/user/${cookies.get("username")}`)
+      .then((res) => {
+        setFollows(res.data?.following);
+        instance.get(`/search_members/${res.data?.poli}`).then((i) => {
+          console.log(i.data);
+        });
+      })
+      .catch((i) => console.log(i));
+  }, []);
+
+  console.log(follows);
 
   return (
     <div className="w-full min-h-screen flex flex-col p-6 gap-12">
       <div className="w-full flex justify-between">
         <div className="flex flex-col gap-0.5">
           <p className="font-normal text-[40px] h-12">안녕하세요</p>
-          <p className="font-bold text-[40px] h-12">햄스터님</p>
+          <p className="font-bold text-[40px] h-12">육기준님</p>
         </div>
         <div className="flex gap-3 items-center h-fit">
           <button className="p-2 flex w-10 h-10 justify-center items-center">
@@ -24,7 +43,7 @@ export const Main = () => {
           </button>
           <div
             onClick={() => navigate("/profile")}
-            className="border cursor-pointer bg-cover bg-no-repeat bg-defaultProfileImg border-gray-300 bg-gray-50 h-11 w-11 rounded-full"
+            className="border cursor-pointer bg-cover bg-no-repeat  border-gray-300 bg-gray-50 h-11 w-11 rounded-full"
           ></div>
         </div>
       </div>

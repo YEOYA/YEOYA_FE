@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Comment = () => {
-  const text = `좋은 소식입니다.\n햄스터 의원님, 힘내십시오!`;
+  const text = `댓글 댓글 댓글`;
   return (
     <div className="flex flex-col w-full gap-3 py-5 border-b border-gray-100">
       <div className="flex gap-3">

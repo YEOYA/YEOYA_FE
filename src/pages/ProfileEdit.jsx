@@ -41,7 +41,11 @@ export const ProfileEdit = () => {
     <>
       <Topbar title="프로필 편집" onClick="profile" />
       <div className="w-full h-full flex flex-col gap-10 px-5 py-6">
-        <div className="relative w-[120px] h-[120px] bg-defaultProfileImg rounded-full bg-cover bg-no-repeat border-2 border-gray-200">
+        <div className="relative w-[120px] h-[120px] rounded-full bg-cover bg-no-repeat border-2 border-gray-200">
+          <img
+            src="https://assets3.thrillist.com/v1/image/2624055/828x1500/flatten;scale;webp=auto;jpeg_quality=60.jpg"
+            className="w-full h-full rounded-full object-cover"
+          />
           <div className="absolute transition-all hover:bg-gray-200  right-0 bottom-0 rounded-full bg-gray-100 p-2">
             <Camera />
           </div>
@@ -80,8 +84,8 @@ export const ProfileEdit = () => {
           value={data.community}
           onChange={(item) => setData({ ...data, community: item })}
         />
+        <AccountButton text="확인" />
       </div>
-      <AccountButton className="right-5 left-5 bottom-5 fixed" text="확인" />
     </>
   );
 };

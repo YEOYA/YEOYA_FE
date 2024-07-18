@@ -3,7 +3,32 @@ import { Arrow } from "../assets";
 import { useNavigate } from "react-router-dom";
 import Slider from "../assets/Slider.svg?react";
 
-const HistoryList = ({ newPost }) => {
+const datas = [
+  {
+    title: "진중권 이어…신평에게도 전화한 김 여사",
+    date: "2024.07.15",
+    page: 1,
+  },
+  {
+    title: "그날 이종섭이 받은 ‘02-800-7070’ 가입자는 대통령 경호처",
+    date: "2024.07.15",
+    page: 2,
+  },
+  {
+    title:
+      "우원식 “野, 이진숙 탄핵 멈추고 정부는 공영방송 이사진 선임 중단하라”",
+    date: "2024.07.14",
+    page: 3,
+  },
+  {
+    title:
+      "우원식 의장, 尹대통령에 '개헌 대화' 제안…\"2026년 개헌 국민투표 추진\"",
+    date: "2024.07.12",
+    page: 4,
+  },
+];
+
+const HistoryList = ({ newPost, title, date, page }) => {
   const navigate = useNavigate();
   const New = () => {
     return (
@@ -19,10 +44,10 @@ const HistoryList = ({ newPost }) => {
     >
       <div className="flex flex-col w-full gap-2">
         <div className="flex items-center gap-3">
-          <p className="text-black text-medium20">해바라기씨 500만개 도입</p>
+          <p className="text-black text-medium20">{title}</p>
           {newPost ? <New /> : <></>}
         </div>
-        <p className="text-gray-400 text-medium14">2024.07.16</p>
+        <p className="text-gray-400 text-medium14">{date}</p>
       </div>
       <div className="transition-all group-hover:translate-x-2">
         <Arrow direction="right" size={14} className="text-gray-400" />
@@ -40,10 +65,14 @@ export const IssueList = ({ title }) => {
           <Slider />
         </div>
         <div className="flex flex-col w-full pl-6 border-l-2 border-gray-200 ">
-          <HistoryList />
-          <HistoryList />
-          <HistoryList />
-          <HistoryList />
+          {datas.map((i, j) => (
+            <HistoryList
+              newPost={j === 0}
+              title={i.title}
+              date={i.date}
+              page={i.page}
+            />
+          ))}
         </div>
         <div
           style={{
